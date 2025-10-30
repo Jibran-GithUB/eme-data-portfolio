@@ -18,16 +18,8 @@ uploaded_file = st.file_uploader("Upload your Excel file", type=['xlsx'])
 if uploaded_file is not None:
     df = pd.read_excel(uploaded_file)
 
-from google.colab import files
-import io
 
-uploaded = files.upload()
 
-for fn in uploaded.keys():
-  print('User uploaded file "{name}" with length {length} bytes'.format(
-      name=fn, length=len(uploaded[fn])))
-  # Read the Excel file into a pandas DataFrame
-  df = pd.read_excel(io.BytesIO(uploaded[fn]))
 
 # Display the first few rows of the DataFrame
 display(df.head())
