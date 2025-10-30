@@ -12,8 +12,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from google.colab import drive
-drive.mount('/content/drive')
+import streamlit as st
+# Example: Upload file in Streamlit
+uploaded_file = st.file_uploader("Upload your Excel file", type=['xlsx'])
+if uploaded_file is not None:
+    df = pd.read_excel(uploaded_file)
 
 from google.colab import files
 import io
